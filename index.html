@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creative Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+/*----------------------------- rigt image with form styling---------------------------------*/
+    .circle-bg {
+    background: rgba(76, 175, 80, 0.85); /* softer green with 85% opacity */
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+    width: 700px;
+    height: 600px;
+    border-radius: 30% 0 0 30%;
+    top: 30%;
+    z-index: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+
+    .header__form form {
+    background-color: white;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 5px;
+
+    width: 350px;   /* Adjust this value */
+}
+
+
+    .header__form input, .header__form select {
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    .header__form button.form__btn {
+        padding: 0.75rem 1.5rem;
+        background-color: #32CD32;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .header__form button.form__btn:hover {
+        background-color: #28a745; /* Slightly darker green on hover */
+    }
+
+/*----------------------------- Services styling---------------------------------*/
+    .services {
+      background-color: #5f4dee;
+      color: white;
+      padding: 4rem 2rem;
+    }
+
+    .services h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-item {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-item p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .icon-wrapper {
+        background: white;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem auto;
+        border-radius: 50%;
+        transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    /* Change the image color on hover */
+    .service-item:hover .icon-wrapper img {
+    filter: invert(1);
+    }
+
+    /* Hover effect for the icon-wrapper when the service-item is hovered */
+    .service-item:hover .icon-wrapper {
+      transform: translateY(-5px);
+      background: #5f4dee;
+    }
+
+    .cta-button {
+      margin-top: 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .service-btn {
+      background-color: #fff;
+      color: #5f4dee;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-btn:hover {
+      background-color: #fff;
+      color: #432bd0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    }
+
+/*----------------------------- our story---------------------------------*/
+    #our_story {
+    background-color: #f5f7fb;
+    max-width: 1200px;
+    width: 100%;
+    margin: 80px auto;
+    margin-bottom: 20px;
+    border: 10px solid #ffffff;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.12);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    }
+
+    .our-story-img {
+    position: relative;
+    width: 100%;
+    overflow: hidden; /* Prevents overflow */
+    }
+
+    .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fits within the container */
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    }
+
+    .slide.active {
+    opacity: 1;
+    }
+
+
+    .story-play-btn {
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #dd3f3f;
+    padding: 20px 10px;
+    border-radius: 4px 4px 10px 10px;
+    color: #ffffff;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    }
+
+    .story-play-btn i {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #aa2f0a;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    }
+
+    .our-stroy-text {
+    padding: 50px;
+    }
+
+    .our-stroy-text h2 {
+    font-size: 2.8rem;
+    color: #122853;
+    line-height: 3rem;
+    }
+
+    .our-stroy-text p {
+    color: #535353;
+    font-size: 0.9rem;
+    margin: 10px 0px;
+    line-height: 1.4rem;
+    letter-spacing: 0.3px;
+    }
+
+    .our-stroy-text p a {
+    color: #122853;
+    text-decoration: underline;
+    }
+
+/*----------------------------- why choose us container---------------------------------*/
+    .why__container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .section__container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 5rem 1rem;
+    }
+
+    .why__image img {
+    max-width: 100%;
+    margin: auto;
+    border-radius: 10px;
+    }
+
+    .why__content p {
+    color: #767268;
+    }
+
+    .why__grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 80px auto;
+    gap: 1.5rem;
+    }
+
+    .why__grid span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #0d846c;
+    border-radius: 10px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .why__grid h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333333;
+    }
+
+    .why__grid p {
+    color: #767268;
+    }
+    
+/*----------------------------- Footer styling---------------------------------*/
+    .footer__logo img{
+    width: 50%;
+    }
+
+    .footer {
+    background-color: #e9f7f7;
+    }
+
+    .footer__container {
+    display: grid;
+    grid-template-columns: 400px repeat(3, 1fr);
+    gap: 2rem;
+    margin: auto;
+    padding: 2rem;
+    }
+
+  .footer__col h4 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 1rem;
+  }
+
+  .footer__col a {
+      text-decoration: none; /* Remove default underline */
+      color: #555; /* Default link color */
+      font-size: 1rem;
+      transition: all 0.3s ease; /* Smooth transition for underline and color */
+  }
+
+  .footer__col a:hover {
+      color: #5f4dee; /* Green color on hover */
+      border-bottom: 2px solid #5f4dee; /* Add underline on hover */
+      padding-bottom: 2px; /* Slightly lift the text */
+  }
+
+    .footer-p p{
+    color: #333333;
+    font-size: 13px
+    }
+
+
+    .footer__col i {
+    color: #12ac8e;
+    }
+
+    .footer__bar {
+    background-color: #12ac8e;
+    }
+
+    .footer__bar__content {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 60px;
+    margin-right: 60px;
+    }
+
+    .footer__bar__content p {
+    font-size: 0.8rem;
+    color: #ffffff;
+    }
+
+    .footer__socials {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+    }
+
+    .footer__socials a{
+    text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo-container">
+        <div class="nav__logo">
+          <a href="index.html"><img src="logo/manhattan-logo.png" alt="manhattan-logo"></a>
+        </div>
+      </div>  
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="Clients.html">Clients</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="reach-us.html">Reach Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>First Manhattan</h1>
+            <p>
+                a Class AAA slaughterhouse meets international food safety standards, 
+                allowing it to process meat for both local and export markets. With strict hygiene protocols and modern equipment, 
+                it ensures high-quality meat products.
+            </p>
+        </div>
+        <div class="hero-image">
+            <div class="circle-bg">
+                <!-- Hidden form that will show on hover -->
+                    <div class="header__form">
+                        <form>
+                            <h4>Inquire Now</h4>
+                            <input type="text" placeholder="First Name" />
+                            <input type="text" placeholder="Last Name" />
+                            <input type="text" placeholder="Company" />
+    
+                            <select id="services" name="services">
+                                <option value="web-design">Services</option>
+                                <option value="web-design">Hog Slaughter</option>
+                                <option value="seo">Cattle Slaughter</option>
+                                <option value="digital-marketing">Lechon Slaughter</option>
+                                <option value="graphic-design">Meat Cutting</option>
+                                <option value="app-development">Blast Freezer</option>
+                                <option value="app-development">Chiller</option>
+                                <option value="app-development">Cold Storage</option>
+                            </select>
+                            <button class="form__btn">Inquire</button>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </section>
+    
+      <section class="services">
+        <h2> OUR SERVICES</h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <div class="icon-wrapper">
+                <img src="https://img.icons8.com/?size=50&id=1286&format=png&color=000000" alt="hog">
+            </div>
+            <h3>Hog Slaughter</h3>
+            <p>Expert handling and humane slaughtering of hogs, following strict industry regulations.</p>
+          </div>
+    
+          <div class="service-item">
+            <div class="icon-wrapper">
+                <img src="https://img.icons8.com/?size=50&id=1288&format=png&color=000000" alt="cattle">
+              </div>
+            <h3>Cattle Slaughter</h3>
+            <p>Professional slaughtering services ensuring top-quality meat preparation.</p>
+          </div>
+    
+          <div class="service-item">
+            <div class="icon-wrapper">
+                <img src="https://img.icons8.com/?size=50&id=4G92M7WevhD0&format=png&color=000000" alt="lechon">
+              </div>
+            <h3>Lechon Slaughter</h3>
+            <p>Specialized processing of whole lechon for celebrations and commercial needs.</p>
+          </div>
+    
+          <div class="service-item">
+            <div class="icon-wrapper">
+                <img src="https://img.icons8.com/?size=50&id=269&format=png&color=000000" alt="meat cutting">
+              </div>
+            <h3>Meat Cutting</h3>
+            <p>Precision meat cutting and portioning based on customer specifications.</p>
+          </div>
+    
+          <div class="service-item">
+            <div class="icon-wrapper">
+                <img src="https://img.icons8.com/?size=50&id=664&format=png&color=000000" alt="blast freezer">
+              </div>
+            <h3>Blast Freezer</h3>
+            <p>State-of-the-art freezing technology to lock in meat freshness and quality.</p>
+          </div>
+    
+          <div class="service-item">
+            <div class="icon-wrapper">
+                <img src="https://img.icons8.com/?size=50&id=1414&format=png&color=000000" alt="chiller">
+              </div>
+            <h3>Chiller</h3>
+            <p>Reliable chilling solutions to maintain the perfect temperature for meat storage.</p>
+          </div>
+    
+          <div class="service-item">
+            <div class="icon-wrapper">
+                <img src="https://img.icons8.com/?size=50&id=20156&format=png&color=000000" alt="cold storage">
+            </div>
+            <h3>Cold Storage</h3>
+            <p>Secure, large-scale cold storage facilities for extended meat preservation.</p>
+          </div>
+        </div>
+        <div class="cta-button">
+            <a href="services.html" class="service-btn">Request a Service</a>
+          </div>
+      </section>
+
+    </section>
+    <!--==Story=============================-->
+    <section id="our_story">
+
+      <!--**img**-->
+      <div class="our-story-img" id="image-container">
+          <a href="#" class="story-play-btn">
+              <i class="fa-solid fa-play"></i>
+              Play Video
+          </a>
+      </div>
+
+      <!--**text**-->
+      <div class="our-stroy-text">
+          <h2>Short Story About First Manhattan.</h2>
+          <p>
+            Lipa City Slaughterhouse was formerly managed by the LGU, 
+            before it was turned over to COMNET MANAGEMENT CORPORATION to handle its operation last December 2013 and was later manage by Comnet sister Company, 
+            First Manhattan Integrated Management Corporation. The Plant occupies approximately 8 hectares which is currently on lease contract with the LGU, while the buildings and all the equipment and machineries are all privately own. 
+            Last 2019, FMIMC becomes the first and only “AAA” certified slaughterhouse in Batangas.
+          </p>
+          <!--numbers-of-happy-patients-->
+      </div>
+  </section><!--story-end-->
+
+  <section class="section__container why__container" id="blog">
+    <div class="why__image">
+      <img src="images/clean-img.png" alt="clean">
+    </div>
+    <div class="why__content">
+      <h2 class="section__header">Why Choose Us</h2>
+      <p>
+        At First Manhattan Integrated Management Corporation (FMIMC), 
+        we uphold the highest industry standards in meat processing, ensuring safety, efficiency, and sustainability.
+      </p>
+      <div class="why__grid">
+        <span><i class="ri-shield-check-line"></i></span>
+        <div>
+          <h4>Strict Quality Control</h4>
+          <p>
+            We adhere to the highest food safety standards, ensuring that every product meets stringent quality requirements before reaching the market.
+          </p>
+        </div>
+        <span><i class="ri-leaf-line"></i></span>
+        <div>
+          <h4>Sustainable Practices</h4>
+          <p>
+            Our commitment to sustainability drives us to implement eco-friendly practices in processing, packaging, and distribution.
+          </p>
+        </div>
+        <span><i class="ri-team-line"></i></span>
+        <div>
+          <h4>Expert Team</h4>
+          <p>
+            Our skilled professionals bring years of expertise in food manufacturing, ensuring efficiency, safety, and innovation in every step.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class=" footer__container">
+      <div class="footer__col footer-p">
+        <div class="footer__logo">
+          <img src="logo/manhattan-logo.png" alt="manhattan-logo">
+        </div>
+        <p>
+          First Manhattan Integrated Management Corporation, the Lipa City Slaughter House is committed to meet customers’ 
+          expectation by providing hygienic and sanitary facility for slaughter of animals and meats that are safely prepared and fit for human consumption through compliance with regulatory requirements.
+        </p>
+      </div>
+      <div class="footer__col">
+        <h4>Home</h4>
+        <p><a href="facilities.html">Facilities</a></p>
+        <p><a href="reach-us.html">Reach us</a></p>
+        <p><a href="about-us.html">About us</a></p>
+      </div>
+      <div class="footer__col">
+        <h4>Services</h4>
+        <p>Hog slaughter</p>
+        <p>Cattle slaughter</p>
+        <p>Lechon slaughter</p>
+        <p>Meath cutting</p>
+        <p>Blast Freeze</p>
+        <p>Chiller</p>
+        <p>Cold Storage</p>
+      </div>
+      <div class="footer__col">
+        <h4>Contact Us</h4>
+        <p>
+          <i class="ri-map-pin-2-fill"></i>Tanco Drive. Brgy. Marawoy, Lipa City, Batangas
+        </p>
+        <p><i class="ri-mail-fill"></i>sales.fmimc@gmail.com</p>
+        <p><i class="ri-phone-fill"></i> 
+          0935-613-0180
+        </p>
+      </div>
+    </div>
+    <div class="footer__bar">
+      <div class="footer__bar__content">
+        <p>Copyright © 2025. All rights reserved.</p>
+        <div class="footer__socials">
+          <span><i class="ri-instagram-line"></i></span>
+          <span><a href="https://www.facebook.com/p/First-Manhattan-Integrated-Management-Corp-100063931385139/"><i class="ri-facebook-fill"></i></a></span>
+          <span><i class="ri-heart-fill"></i></span>
+          <span><i class="ri-twitter-fill"></i></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="script/slider.js"></script>
+</body>
+</html>
+  
