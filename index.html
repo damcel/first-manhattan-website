@@ -60,7 +60,7 @@
 
 /*----------------------------- Services styling---------------------------------*/
     .services {
-      background-color: #5f4dee;
+      background: linear-gradient(to bottom, #f9f9f9, #e6f2e6);
       color: white;
       padding: 4rem 2rem;
     }
@@ -70,6 +70,7 @@
       font-weight: 700;
       text-align: center;
       margin-bottom: 3rem;
+      color: #118c4f;
     }
 
     .services-grid {
@@ -81,31 +82,37 @@
     }
 
     .service-item {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-align: center;
+      background: #ffffff;
+      color: #118c4f;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
       cursor: pointer;
     }
 
     .service-item:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     }
 
     .service-item h3 {
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
+      text-align: center;
     }
 
     .service-item p {
       font-size: 0.9rem;
       opacity: 0.9;
+      color: #666;
+      text-align: center;
     }
 
     .icon-wrapper {
-        background: white;
+        background: rgba(17, 140, 79, 0.1);
         width: 80px;
         height: 80px;
         display: flex;
@@ -124,9 +131,8 @@
     /* Hover effect for the icon-wrapper when the service-item is hovered */
     .service-item:hover .icon-wrapper {
       transform: translateY(-5px);
-      background: #5f4dee;
+      background: #118c4f;
     }
-
     .cta-button {
       margin-top: 3rem;
       display: flex;
@@ -135,7 +141,7 @@
 
     .service-btn {
       background-color: #fff;
-      color: #5f4dee;
+      background-color: var(--primary-color);
       padding: 0.75rem 1.5rem;
       border-radius: 30px;
       text-decoration: none;
@@ -146,7 +152,7 @@
 
     .service-btn:hover {
       background-color: #fff;
-      color: #432bd0;
+      color: #169427;
       transform: translateY(-2px);
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
     }
@@ -156,7 +162,7 @@
     background-color: #f5f7fb;
     max-width: 1200px;
     width: 100%;
-    margin: 80px auto;
+    margin: 120px auto;
     margin-bottom: 20px;
     border: 10px solid #ffffff;
     box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.12);
@@ -238,17 +244,22 @@
 
 /*----------------------------- why choose us container---------------------------------*/
     .why__container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        align-items: center;
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+border: 10px solid #ffffff;
+    /* Add this for background color */
+    background-color: #f5f7fb; /* Replace with any color you like */
 
-    .section__container {
-        max-width: 1200px;
-        margin: auto;
-        padding: 5rem 1rem;
-    }
+    /* Keep your margin and padding intact */
+    max-width: 1200px;
+    margin: auto;
+    padding: 5rem 1rem;
+
+    /* Optional: add border-radius or box-shadow if you want it to pop */
+    border-radius: 8px;
+}
 
     .why__image img {
     max-width: 100%;
@@ -275,6 +286,7 @@
     color: #0d846c;
     border-radius: 10px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
     }
 
     .why__grid h4 {
@@ -294,7 +306,7 @@
     }
 
     .footer {
-    background-color: #e9f7f7;
+    background-color: #fff;
     }
 
     .footer__container {
@@ -516,39 +528,41 @@
       </div>
   </section><!--story-end-->
 
-  <section class="section__container why__container" id="blog">
-    <div class="why__image">
-      <img src="images/clean-img.png" alt="clean">
-    </div>
-    <div class="why__content">
-      <h2 class="section__header">Why Choose Us</h2>
-      <p>
-        At First Manhattan Integrated Management Corporation (FMIMC), 
-        we uphold the highest industry standards in meat processing, ensuring safety, efficiency, and sustainability.
-      </p>
-      <div class="why__grid">
-        <span><i class="ri-shield-check-line"></i></span>
-        <div>
-          <h4>Strict Quality Control</h4>
-          <p>
-            We adhere to the highest food safety standards, ensuring that every product meets stringent quality requirements before reaching the market.
-          </p>
-        </div>
-        <span><i class="ri-leaf-line"></i></span>
-        <div>
-          <h4>Sustainable Practices</h4>
-          <p>
-            Our commitment to sustainability drives us to implement eco-friendly practices in processing, packaging, and distribution.
-          </p>
-        </div>
-        <span><i class="ri-team-line"></i></span>
-        <div>
-          <h4>Expert Team</h4>
-          <p>
-            Our skilled professionals bring years of expertise in food manufacturing, ensuring efficiency, safety, and innovation in every step.
-          </p>
-        </div>
-      </div>
+  <section class="section__container" id="blog">
+    <div class="why__container">
+        <div class="why__image">
+            <img src="images/clean-img.png" alt="clean">
+          </div>
+          <div class="why__content">
+            <h2 class="section__header">Why Choose Us</h2>
+            <p>
+              At First Manhattan Integrated Management Corporation (FMIMC), 
+              we uphold the highest industry standards in meat processing, ensuring safety, efficiency, and sustainability.
+            </p>
+            <div class="why__grid">
+              <span><i class="ri-shield-check-line"></i></span>
+              <div>
+                <h4>Strict Quality Control</h4>
+                <p>
+                  We adhere to the highest food safety standards, ensuring that every product meets stringent quality requirements before reaching the market.
+                </p>
+              </div>
+              <span><i class="ri-leaf-line"></i></span>
+              <div>
+                <h4>Sustainable Practices</h4>
+                <p>
+                  Our commitment to sustainability drives us to implement eco-friendly practices in processing, packaging, and distribution.
+                </p>
+              </div>
+              <span><i class="ri-team-line"></i></span>
+              <div>
+                <h4>Expert Team</h4>
+                <p>
+                  Our skilled professionals bring years of expertise in food manufacturing, ensuring efficiency, safety, and innovation in every step.
+                </p>
+              </div>
+            </div>
+          </div>
     </div>
   </section>
 

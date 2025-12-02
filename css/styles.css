@@ -25,9 +25,9 @@
 }
 
 .section__container {
-  max-width: var(--max-width);
-  margin: auto;
-  padding: 5rem 1rem;
+      background: linear-gradient(to bottom, #f9f9f9, #e6f2e6);
+      margin: 120px 0 0 0 ;
+      padding: 100px;
 }
 
 .section__header {
@@ -470,13 +470,15 @@ position: relative;
   padding-bottom: 50px;
 }
 .container {
-  width: 90%;
-    margin: auto;
+    width: 90%;
+    max-width: 1200px; /* optional, keeps it from getting too wide */
+    margin: 50px auto 0 auto; /* top margin 50px, auto left/right centers */
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 50px;
+    flex-direction: column; /* stack children vertically */
+    align-items: center;    /* center horizontally */
+    gap: 30px; /* space between top and bottom elements */
 }
+
 .section-title {
     width: 100%;
     text-align: center;
@@ -887,6 +889,7 @@ textarea {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .service-card:hover {
